@@ -11,92 +11,91 @@
             background-color: #000;
             font-family: 'Times New Roman', serif;
             display: flex; justify-content: center; align-items: center;
-            color: white; overflow: hidden;
         }
 
-        /* Image du gars en fond */
-        .bg {
+        /* L'IMAGE DU GARS EN COMPLET ET LES LUMIÈRES */
+        .background {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000') no-repeat center center;
+            background: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-xbyXp4L1VbI2X0Y2X0Y2X0Y2X0Y2X0.png') no-repeat center center;
             background-size: cover;
-            filter: brightness(0.4);
             z-index: -1;
         }
 
-        /* Le "téléphone" au centre */
+        /* LE CADRE DU TÉLÉPHONE */
         .phone-frame {
             width: 320px;
             height: 650px;
-            background: rgba(0, 0, 0, 0.85);
-            border: 1px solid #333;
+            background: #0a0a0a;
+            border: 8px solid #333;
             border-radius: 40px;
-            padding: 30px;
+            padding: 20px;
             display: flex; flex-direction: column; align-items: center;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            position: relative;
         }
 
+        /* LE LOGO V I B E DORÉ */
         .logo {
             font-size: 32px;
-            letter-spacing: 10px;
-            margin-top: 40px;
-            background: linear-gradient(to bottom, #f3e5ab, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 12px;
+            margin-top: 50px;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
             font-weight: bold;
         }
 
+        /* LA GRILLE DES VILLES */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .city {
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 25px 10px;
+            border: 1px solid #444;
+            padding: 25px 5px;
             text-align: center;
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 2px;
-            color: #aaa;
+            color: #888;
             text-transform: uppercase;
         }
 
-        .city.active {
+        /* MONTREAL EN DORÉ */
+        .active {
             border: 2px solid #d4af37;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(212,175,55,0.3);
+            color: #d4af37;
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        .input-group {
+        /* BAS DE PAGE (PRÉNOM) */
+        .footer {
             margin-top: auto;
             width: 100%;
-            border-bottom: 1px solid #d4af37;
-            padding-bottom: 5px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #444;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            align-items: center;
+            padding-bottom: 10px;
         }
 
-        input {
-            background: transparent;
-            border: none;
-            color: white;
+        .footer span {
+            color: #666;
             font-size: 14px;
-            outline: none;
-            width: 80%;
         }
 
         .arrow {
             color: #d4af37;
+            font-size: 20px;
             text-decoration: none;
-            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <div class="bg"></div>
+    <div class="background"></div>
     
     <div class="phone-frame">
         <div class="logo">V I B E</div>
@@ -108,8 +107,8 @@
             <div class="city">TORONTO</div>
         </div>
 
-        <div class="input-group">
-            <input type="text" placeholder="Votre Prénom">
+        <div class="footer">
+            <span>Votre Prénom</span>
             <a href="#" class="arrow">➔</a>
         </div>
     </div>
