@@ -5,24 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V I B E</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; background-color: #000; font-family: 'Times New Roman', serif; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        /* Base et Arrière-plan */
+        body, html { 
+            margin: 0; padding: 0; height: 100%; 
+            background-color: #000; 
+            font-family: 'Times New Roman', serif; 
+            display: flex; justify-content: center; align-items: center; 
+            overflow: hidden; 
+        }
+        
         .background {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            /* Utilise ton image locale src/bg.png */
             background: url('src/bg.png') no-repeat center center;
             background-size: cover;
             z-index: -1;
         }
+
+        /* Cadre central (réduit comme demandé) */
         .phone-overlay {
-            width: 320px; height: 650px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #333; border-radius: 45px;
+            width: 300px; 
+            height: 580px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid #333; 
+            border-radius: 45px;
             display: flex; flex-direction: column; align-items: center;
-            padding: 40px 20px; box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            padding: 40px 20px; 
+            box-shadow: 0 0 60px rgba(0,0,0,1);
+            backdrop-filter: blur(5px); /* Effet de vitre sur ordi */
         }
-        .logo { font-size: 32px; letter-spacing: 12px; color: #d4af37; margin-top: 40px; font-weight: bold; text-align: center; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; margin-top: 60px; }
-        .city { border: 1px solid #333; padding: 25px 0; text-align: center; font-size: 10px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
-        .active { border: 1.5px solid #d4af37; color: #d4af37; }
+
+        .logo { 
+            font-size: 34px; 
+            letter-spacing: 14px; 
+            color: #d4af37; 
+            margin-top: 40px; 
+            font-weight: bold; 
+            text-align: center;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Grille des villes (Montréal, Québec, Ottawa, Toronto) */
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            width: 100%; 
+            margin-top: 60px; 
+        }
+
+        .city { 
+            border: 1px solid #333; 
+            padding: 25px 0; 
+            text-align: center; 
+            font-size: 10px; 
+            color: #666; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+        }
+
+        .active { 
+            border: 1.5px solid #d4af37; 
+            color: #d4af37; 
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Zone d'entrée */
+        .input-box { 
+            margin-top: auto; 
+            width: 100%; 
+            border-bottom: 1px solid #444; 
+            display: flex; 
+            justify-content: space-between; 
+            padding-bottom: 10px; 
+            margin-bottom: 30px; 
+        }
+
+        .input-box span { color: #555; font-size: 14px; }
+        .arrow { color: #d4af37; font-size: 20px; text-decoration: none; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -35,10 +96,10 @@
             <div class="city">OTTAWA</div>
             <div class="city">TORONTO</div>
         </div>
+        <div class="input-box">
+            <span>Votre Prénom</span>
+            <a href="#" class="arrow">➔</a>
+        </div>
     </div>
 </body>
 </html>
-Pourquoi CE code ?
-Parce qu'il utilise le chemin src/bg.png. Comme tu as déjà réussi à renommer ton image correctement sur GitHub cette nuit, ce lien va fonctionner tout seul.
-
-Fais cette dernière modification. Si tu effaces tout, tu vas juste recréer la même fatigue. On finit ça proprement !
