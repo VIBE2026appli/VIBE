@@ -1,4 +1,4 @@
-import React from 'react';
+     import React from 'react';
 
 function App() {
   const cities = [
@@ -16,24 +16,26 @@ function App() {
       justifyContent: 'center',
       height: '100vh',
       color: '#D4AF37',
-      fontFamily: 'serif'
+      fontFamily: 'serif',
+      textAlign: 'center'
     }}>
-      <h1 style={{ letterSpacing: '10px', marginBottom: '40px' }}>V I B E</h1>
+      <h1 style={{ letterSpacing: '10px', marginBottom: '40px', fontSize: '2rem' }}>V I B E</h1>
       
       <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: '20px'
+        gap: '20px',
+        width: '90%',
+        maxWidth: '400px'
       }}>
         {cities.map(city => (
           <a key={city.name} href={city.url} style={{
             border: '1px solid #D4AF37',
-            padding: '20px 40px',
+            padding: '20px 10px',
             textDecoration: 'none',
             color: '#D4AF37',
-            textAlign: 'center',
             fontSize: '14px',
-            minWidth: '100px'
+            fontWeight: 'bold'
           }}>
             {city.name}
           </a>
@@ -48,11 +50,12 @@ function App() {
           color: '#D4AF37',
           width: '100%',
           padding: '10px 0',
-          outline: 'none'
+          outline: 'none',
+          textAlign: 'center'
         }} />
       </div>
     </div>
   );
 }
 
-export default App;
+export default App;     p;
