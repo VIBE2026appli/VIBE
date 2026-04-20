@@ -1,52 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V I B E</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; background-color: #000; font-family: 'Times New Roman', serif; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-        
-        .background {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-xbyXp4L1VbI2X0Y2X0Y2X0Y2X0Y2X0.png') no-repeat center center;
-            background-size: cover;
-            z-index: -1;
-        }
-
-        .phone-overlay {
-            width: 320px; height: 650px;
-            background: rgba(0, 0, 0, 0.9);
-            border: 1px solid #333; border-radius: 45px;
-            display: flex; flex-direction: column; align-items: center;
-            padding: 40px 20px; box-shadow: 0 0 50px rgba(0,0,0,0.9);
-        }
-
-        .logo { font-size: 32px; letter-spacing: 12px; color: #d4af37; margin-top: 40px; font-weight: bold; text-align: center; }
-
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; margin-top: 60px; }
-        .city { border: 1px solid #333; padding: 25px 0; text-align: center; font-size: 10px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
-        .active { border: 1.5px solid #d4af37; color: #d4af37; }
-
-        .input-box { margin-top: auto; width: 100%; border-bottom: 1px solid #444; display: flex; justify-content: space-between; padding-bottom: 10px; margin-bottom: 30px; }
-        .input-box span { color: #555; font-size: 14px; }
-        .arrow { color: #d4af37; font-size: 20px; text-decoration: none; }
-    </style>
-</head>
-<body>
-    <div class="background"></div>
-    <div class="phone-overlay">
-        <div class="logo">V I B E</div>
-        <div class="grid">
-            <div class="city active">MONTREAL</div>
-            <div class="city">QUEBEC</div>
-            <div class="city">OTTAWA</div>
-            <div class="city">TORONTO</div>
-        </div>
-        <div class="input-box">
-            <span>Votre Prénom</span>
-            <a href="#" class="arrow">➔</a>
-        </div>
-    </div>
-</body>
-</html>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('src/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+</style>
