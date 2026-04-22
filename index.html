@@ -2,113 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>V I B E</title>
     <style>
-        /* Base et Arrière-plan */
-        body, html { 
-            margin: 0; padding: 0; height: 100%; 
-            background-color: #000; 
-            font-family: 'Times New Roman', serif; 
-            display: flex; justify-content: center; align-items: center; 
-            overflow: hidden; 
-        }
-        
-        .background {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            /* Utilise ton image locale src/bg.png
-            background:url('./src/bg.png') no-repeat center center;
-            background-size: cover;
-            z-index: -1;
-        }
-
-        /* Cadre central (réduit comme demandé) */
-        .phone-overlay {
-            width: 300px; 
-            height: 580px;
-            background: rgba(0, 0, 0, 0.85);
-            border: 1px solid #333; 
-            border-radius: 45px;
-            display: flex; flex-direction: column; align-items: center;
-            padding: 40px 20px; 
-            box-shadow: 0 0 60px rgba(0,0,0,1);
-            backdrop-filter: blur(5px); /* Effet de vitre sur ordi */
-        }
-
-        .logo { 
-            font-size: 34px; 
-            letter-spacing: 14px; 
-            color: #d4af37; 
-            margin-top: 40px; 
-            font-weight: bold; 
-            text-align: center;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Grille des villes (Montréal, Québec, Ottawa, Toronto) */
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-            width: 100%; 
-            margin-top: 60px; 
-        }
-
-        .city { 
-            border: 1px solid #333; 
-            padding: 25px 0; 
-            text-align: center; 
-            font-size: 10px; 
-            color: #666; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            transition: 0.3s;
-        }
-
-        .active { 
-            border: 1.5px solid #d4af37; 
-            color: #d4af37; 
-            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1);
-        }
-
-        /* Zone d'entrée */
-        .input-box { 
-            margin-top: auto; 
-            width: 100%; 
-            border-bottom: 1px solid #444; 
-            display: flex; 
-            justify-content: space-between; 
-            padding-bottom: 10px; 
-            margin-bottom: 30px; 
-        }
-
-        .input-box span { color: #555; font-size: 14px; }
-        .arrow { color: #d4af37; font-size: 20px; text-decoration: none; cursor: pointer; }
+        body, html { margin: 0; padding: 0; height: 100%; background: #000; font-family: 'Times New Roman', serif; display: flex; justify-content: center; align-items: center; color: white; overflow: hidden; }
+        .bg-image { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop') no-repeat center center; background-size: cover; filter: brightness(35%); z-index: -1; }
+        .container { width: 85%; max-width: 320px; text-align: center; border: 1px solid rgba(212,175,55,0.3); padding: 30px; border-radius: 40px; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(212,175,55,0.1); }
+        .logo { color: #d4af37; font-size: 26px; letter-spacing: 10px; margin-bottom: 35px; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 35px; }
+        .btn { border: 1px solid #fff; padding: 12px; font-size: 10px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn.active { background: #fff; color: #000; font-weight: bold; }
+        .input-box { border-bottom: 1px solid #fff; margin-bottom: 25px; display: flex; align-items: center; }
+        input { background: none; border: none; color: #fff; width: 85%; padding: 12px; font-size: 18px; outline: none; font-family: serif; }
+        .arrow { color: #d4af37; font-size: 30px; text-decoration: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="phone-overlay">
+    <div class="bg-image"></div>
+    <div class="container">
         <div class="logo">V I B E</div>
         <div class="grid">
-            <div class="city active">MONTREAL</div>
-            <div class="city">QUEBEC</div>
-            <div class="city">OTTAWA</div>
-            <div class="city">TORONTO</div>
+            <div class="btn active" onclick="s(this)">MONTREAL</div>
+            <div class="btn" onclick="s(this)">QUEBEC</div>
+            <div class="btn" onclick="s(this)">OTTAWA</div>
+            <div class="btn" onclick="s(this)">TORONTO</div>
         </div>
         <div class="input-box">
-            <span>Votre Prénom</span>
-            <a href="https://www.tiktok.com/@tonnom/video/123...)" class="arrow">➔</a>
-  <div style="margin-top: 25px; display: flex; justify-content: space-around; width: 100%; border-top: 1px solid #444; padding-top: 15px;">
-   <a href="https://www.facebook.com" target="_blank" style="color:white; text-decoration:none; font-size:11px; text-align:center;">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30"><br>Facebook</a>
-   
-   <a href="https://www.instagram.com" target="_blank" style="color:white; text-decoration:none; font-size:11px; text-align:center;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="30"><br>Instagram</a>
-   
-   <a href="https://www.snapchat.com" target="_blank" style="color:white; text-decoration:none; font-size:11px; text-align:center;">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733576.png" width="30"><br>Snapchat</a>
-      </div>
-    </div>       
- </body>
+            <input type="text" placeholder="Votre Prénom" id="name">
+            <a href="https://www.tiktok.com/@vibe2027" class="arrow">→</a>
+        </div>
+    </div>
+    <script>
+        function s(e) {
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            e.classList.add('active');
+        }
+    </script>
+</body>
 </html>
