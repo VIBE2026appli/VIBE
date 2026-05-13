@@ -1,15 +1,12 @@
-       <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100vh',
-      width: '100vw',
-      backgroundImage: 'url("/src/bg.png")', // On force le chemin exact ici
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      color: '#D4AF37',
-      fontFamily: 'serif',
-      textAlign: 'center'
-    }}>
-  
+import React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <div className="app-container">
+      {/* Content can be added here */}
+    </div>
+  );
+}
+
+export default App;
