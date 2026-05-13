@@ -3,47 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vibe2026 - L'expérience numérique de demain">
-    <title>Vibe2026 | Accueil</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>V I B E</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #000; font-family: 'Times New Roman', serif; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+
+        .background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('./src/bg.png') no-repeat center center;
+            background-size: cover;
+            z-index: -2;
+        }
+
+        .fog-layer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%; height: 100%;
+            background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.4"/%3E%3C/svg%3E') repeat-x;
+            background-size: 50% 100%;
+            opacity: 0.6;
+            animation: moveFog 30s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes moveFog {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .phone-overlay {
+            width: 320px; height: 650px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #333; border-radius: 45px;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 40px 20px; box-shadow: 0 0 50px rgba(0,0,0,0.9);
+        }
+
+        .logo { font-size: 32px; letter-spacing: 12px; color: #d4af37; margin-top: 40px; font-weight: bold; text-align: center; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; margin-top: 60px; }
+        .city { border: 1px solid #333; padding: 25px 0; text-align: center; font-size: 10px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+        .active { border: 1.5px solid #d4af37; color: #d4af37; }
+
+        .input-box { margin-top: auto; width: 100%; border-bottom: 1px solid #444; display: flex; justify-content: space-between; padding-bottom: 10px; margin-bottom: 30px; }
+        .input-box span { color: #555; font-size: 14px; }
+        .arrow { color: #d4af37; font-size: 20px; text-decoration: none; }
+    </style>
 </head>
 <body>
-
-    <header>
-        <nav class="navbar">
-            <div class="logo">VIBE<span>2026</span></div>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#concept">Concept</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="hero">
-            <div class="container">
-                <h1>Bienvenue sur Vibe2026</h1>
-                <p>Découvrez les nouvelles tendances et l'énergie de l'année 2026.</p>
-                <a href="#concept" class="btn">Explorer</a>
-            </div>
-        </section>
-
-        <section id="concept" class="container">
-            <h2>Notre Vision</h2>
-            <p>Le projet Vibe2026 est conçu pour connecter les idées et les gens.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Vibe2026 - Tous droits réservés.</p>
+    <div class="background"></div>
+    <div class="fog-layer"></div>
+    <div class="phone-overlay">
+        <div class="logo">V I B E</div>
+        <div class="grid">
+            <div class="city active">MONTREAL</div>
+            <div class="city">QUEBEC</div>
+            <div class="city">OTTAWA</div>
+            <div class="city">TORONTO</div>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
+        <div class="input-box">
+            <span>Votre Prénom</span>
+            <a href="#" class="arrow">➔</a>
+        </div>
+    </div>
 </body>
 </html>
