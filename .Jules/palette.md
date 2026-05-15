@@ -1,0 +1,3 @@
+## 2024-05-24 - Internal Anchor Navigation
+**Learning:** Internal anchor links (`<a href="#id">`) must map to an existing element's ID within the page. If the ID does not exist, not only does the link do nothing when clicked, but it also creates confusion for screen reader users and keyboard navigators who expect focus to shift to a new section.
+**Action:** Always verify that every internal link correctly corresponds to an element ID, especially for primary navigation.
