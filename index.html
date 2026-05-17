@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navigation principale">
             <div class="logo">VIBE<span>2026</span></div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
@@ -24,16 +24,16 @@
     </header>
 
     <main>
-        <section id="hero">
+        <section id="accueil" aria-labelledby="accueil-heading">
             <div class="container">
-                <h1>Bienvenue sur Vibe2026</h1>
+                <h1 id="accueil-heading">Bienvenue sur Vibe2026</h1>
                 <p>Découvrez les nouvelles tendances et l'énergie de l'année 2026.</p>
-                <a href="#concept" class="btn">Explorer</a>
+                <a href="#concept" class="btn" aria-label="Explorer notre vision">Explorer</a>
             </div>
         </section>
 
-        <section id="concept" class="container">
-            <h2>Notre Vision</h2>
+        <section id="concept" class="container" aria-labelledby="concept-heading">
+            <h2 id="concept-heading">Notre Vision</h2>
             <p>Le projet Vibe2026 est conçu pour connecter les idées et les gens.</p>
         </section>
     </main>
