@@ -1,0 +1,3 @@
+## 2024-10-24 - Dynamic aria-current for hash navigation
+**Learning:** Hardcoding `aria-current="page"` on single-page scroll websites with hash navigation creates an accessibility bug. Dynamic toggling of `aria-current="true"` via IntersectionObserver is needed to accurately reflect the active section.
+**Action:** Use IntersectionObserver to dynamically manage `aria-current="true"` on hash navigation links for single-page scrolling interfaces.
