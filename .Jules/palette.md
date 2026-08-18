@@ -1,0 +1,3 @@
+## 2024-05-24 - Dynamic aria-current for Single Page Scrolling
+**Learning:** Hardcoding `aria-current="page"` on links in a single-page scrolling application (where navigation links are hash anchors pointing to sections) is an accessibility bug, as the "page" doesn't change. Instead, screen reader users need to know which *section* is currently active.
+**Action:** Use an `IntersectionObserver` in JavaScript to dynamically apply `aria-current="true"` to the navigation link corresponding to the currently intersecting section, and remove it from the others. Always ensure you verify the `href` attribute exists and starts with `#` before comparing.
