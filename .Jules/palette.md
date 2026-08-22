@@ -1,0 +1,3 @@
+## 2024-10-24 - Dynamic Navigation Accessibility
+**Learning:** Hardcoding `aria-current="page"` on single-page scrolling sites creates accessibility bugs because the active section changes dynamically. Furthermore, internal anchor navigation without focus management fails to guide screen reader focus to the newly navigated content.
+**Action:** Use JavaScript (`IntersectionObserver` and click events) to dynamically toggle `aria-current="true"` on valid hash links (checking `href.startsWith('#')`), and manage focus by setting `tabindex="-1"` and calling `focus()` on target sections when smoothly scrolled.
