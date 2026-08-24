@@ -1,42 +1,66 @@
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { supabase } from './supabaseClient';
+import './App.css';
+
+// Pages
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Messages from './pages/Messages';
+import VoiceGallery from './pages/VoiceGallery';
+import Settings from './pages/Settings';
+
+// Components
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+
 export default function App() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription?.unsubscribe();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 to-black">
+        <div className="text-white">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500 mb-4"></div>
+          <p>Chargement...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div style={{
-      display:'flex',
-      flexDirection:'column',
-      alignItems:'center',
-      justifyContent:'center',
-      minHeight:'100vh',
-      width:'100vw',
-      backgroundColor:'#050505',
-      color:'#D4AF37',
-      fontFamily:'Georgia, serif',
-      textAlign:'center',
-      padding:'40px 20px'
-    }}>
-      <h1 style={{fontSize:'3rem',marginBottom:'10px',letterSpacing:'8px'}}>
-        ✦ VIBE
-      </h1>
-      <p style={{fontSize:'1.1rem',marginBottom:'8px',opacity:0.9}}>
-        L'app LGBTQ+ 100% canadienne
-      </p>
-      <p style={{fontSize:'0.9rem',marginBottom:'40px',opacity:0.6}}>
-        Montréal · Québec · Toronto · Vancouver · Ottawa
-      </p>
-      <a href="https://vibegay.ca/inscription" style={{
-        backgroundColor:'#D4AF37',
-        color:'#050505',
-        padding:'14px 32px',
-        borderRadius:'30px',
-        textDecoration:'none',
-        fontWeight:'bold',
-        fontSize:'1rem',
-        marginBottom:'20px'
-      }}>
-        Rejoindre VIBE
-      </a>
-      <p style={{fontSize:'0.8rem',opacity:0.5,marginTop:'60px'}}>
-        © 2026 VIBE Canada · vibegay.ca
-      </p>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 to-black text-white">
+        <Header user={user} />
+        <main className="container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Home user={user} />} />
+            <Route path="/profile" element={<Profile user={user} />} />
+            <Route path="/voices" element={<VoiceGallery />} />
+            <Route path="/messages" element={<Messages user={user} />} />
+            <Route path="/settings" element={<Settings user={user} />} />
+          </Routes>
+        </main>
+        <Navigation user={user} />
+      </div>
+    </BrowserRouter>
   );
 }
