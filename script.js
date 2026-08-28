@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
+    const currentHash = window.location.hash || '#accueil';
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentHash) {
+            link.setAttribute('aria-current', 'true');
+        }
+    });
+
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+
+            if (this.getAttribute('aria-disabled') === 'true') {
+                return;
+            }
+
             const targetId = this.getAttribute('href');
             if (targetId && targetId.startsWith('#')) {
                 const targetElement = document.querySelector(targetId);
